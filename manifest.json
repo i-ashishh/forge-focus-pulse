@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "FORGE — Focus Pulse",
+  "version": "0.2.0",
+  "description": "A quiet background focus companion that periodically overlays a thought, reminder, or JEE reality check on the page you are using.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "alarms", "notifications", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "FORGE Focus Pulse", "default_popup": "popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" }
+}
